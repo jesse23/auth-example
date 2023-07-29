@@ -7,15 +7,23 @@ services:
       dockerfile: dev.Dockerfile
     ports:
       - 4200:80
-  nodejs-auth:
-    container_name: nodejs-auth-DEV
+  auth-jwt:
+    container_name: auth-jwt-DEV
     volumes:
-      - ./apps/nodejs-auth/src:/app/src
-      - nodejs-auth_node_modules:/app/node_modules
+      - ./apps/auth-jwt/src:/app/src
+      - auth-jwt_node_modules:/app/node_modules
     build:
-      context: ./apps/nodejs-auth/
+      context: ./apps/auth-jwt/
       dockerfile: dev.Dockerfile
-  
+  auth-sam:
+    container_name: auth-sam-DEV
+    volumes:
+      - ./apps/auth-sam:/app
+      - auth-sam_node_modules:/app/node_modules
+    build:
+      context: ./apps/auth-sam/
+      dockerfile: dev.Dockerfile
 
 volumes:
-  nodejs-auth_node_modules:
+  auth-jwt_node_modules:
+  auth-sam_node_modules:

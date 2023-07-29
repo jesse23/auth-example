@@ -22,4 +22,4 @@ app.get('/', (req, res) => {
     }
 })
 
-app.listen(process.env.APP_PORT || 80, () => console.log(`Example app listening on port ${process.env.APP_PORT}!`))
+app.listen(process.env.APP_PORT || 3000, () => console.log(`Example app auth-jwt listening on port ${process.env.APP_PORT}!`))

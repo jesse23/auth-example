@@ -3,9 +3,12 @@ services:
 
   nginx:
     links:
-      - nodejs-auth
+      - auth-jwt
     volumes:
       - ./apps/nginx/dist/:/usr/share/nginx/html
 
-  nodejs-auth:
-    container_name: nodejs-auth
+  auth-jwt:
+    container_name: auth-jwt
+
+  auth-sam:
+    container_name: auth-sam
