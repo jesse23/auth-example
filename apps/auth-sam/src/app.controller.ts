@@ -35,6 +35,12 @@ export class AppController {
     return;
   }
 
+  @Get('api/auth/check')
+  @UseGuards(JwtAuthGuard)
+  async authCheck() {
+    return;
+  }
+
   @Post('api/auth/sso/saml/ac')
   @UseGuards(SamlAuthGuard)
   async samlAssertionConsumer(
@@ -46,7 +52,7 @@ export class AppController {
       const user = req.user as User;
       const jwt = this.authService.getTokenForUser(user);
       this.userService.storeUser(user);
-      this, res.redirect('/?jwt=' + jwt);
+      res.redirect('/mp3recordings/SampleAudio_0.4mb.mp3?jwt=' + jwt);
     }
   }
 

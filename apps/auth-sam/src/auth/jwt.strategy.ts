@@ -9,8 +9,21 @@ import { User } from '../model/user';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly userService: UserService) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: false,
+      //jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        (req) => {
+          let token = '';
+          if (
+            req.headers['x-original-uri'] &&
+            (req.headers['x-original-uri'] as string).split('?jwt=').length ===
+              2
+          ) {
+            token = (req.headers['x-original-uri'] as string).split('?jwt=')[1];
+          }
+          return token;
+        },
+      ]),
+      ignoreExpiration: true,
       secretOrKey: jwtConstants.secret,
     });
   }

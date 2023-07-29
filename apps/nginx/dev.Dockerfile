@@ -1,3 +1,3 @@
 FROM nginx:alpine
 COPY dev.conf /etc/nginx/nginx.conf
-EXPOSE 80
+EXPOSE 3000
