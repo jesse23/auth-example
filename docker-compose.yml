@@ -1,14 +1,19 @@
 version: "3"
 services:
-
-  nginx:
+  auth-example-nginx:
     links:
-      - auth-jwt
+      - auth-example-auth-jwt
+      - auth-example-auth-sam
+      - auth-example-api-sample
     volumes:
       - ./apps/nginx/dist/:/usr/share/nginx/html
+      - ./apps/app-sample/dist/:/usr/share/nginx/html/app-sample
 
-  auth-jwt:
-    container_name: auth-jwt
+  auth-example-auth-jwt:
+    container_name: auth-example-auth-jwt
 
-  auth-sam:
-    container_name: auth-sam
+  auth-example-auth-sam:
+    container_name: auth-example-auth-sam
+
+  auth-example-api-sample:
+    container_name: auth-example-api-sample

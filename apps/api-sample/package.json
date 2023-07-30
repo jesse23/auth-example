@@ -1,5 +1,5 @@
 {
-  "name": "@auth-example/auth-jwt",
+  "name": "@auth-example/api-sample",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -13,9 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "mongodb":"^3.1.1",
-    "nodemon":"1.18.3",
-    "jsonwebtoken":"8.3.0",
-    "lodash":"4.17.10"
+    "nodemon":"1.18.3"
   }
 }

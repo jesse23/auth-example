@@ -23,4 +23,6 @@ app.get('/', (req, res) => {
     }
 })
 
-app.listen(process.env.APP_PORT || 3000, () => console.log(`Example app auth-jwt listening on port ${process.env.APP_PORT}!`))
+const port = process.env.APP_PORT || 3001
+
+app.listen(port, () => console.log(`Example app auth-jwt listening on port ${port}!`))
