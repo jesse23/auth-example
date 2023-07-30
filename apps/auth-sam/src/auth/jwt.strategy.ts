@@ -9,7 +9,6 @@ import { User } from '../model/user';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly userService: UserService) {
     super({
-      //jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       jwtFromRequest: ExtractJwt.fromExtractors([
         (req) => {
           let token = '';
@@ -19,6 +18,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
               2
           ) {
             token = (req.headers['x-original-uri'] as string).split('?jwt=')[1];
+          } else if (req.cookies && req.cookies['jwt']) {
+            token = req.cookies['jwt'];
           }
           return token;
         },

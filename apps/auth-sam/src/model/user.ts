@@ -4,4 +4,5 @@ export interface User {
   issuer: string;
   email: string;
   phone: string;
+  returnUrl?: string;
 }

@@ -3,6 +3,7 @@ const app = express()
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
+// Simple jwt auth based on key 'secreate' and token in query string
 app.get('/', (req, res) => {
     res.statusCode = 401;
     if(req.headers['x-original-uri'] && req.headers['x-original-uri'].split('?token=').length === 2){
