@@ -4,5 +4,6 @@ WORKDIR /app
 COPY ./package.json ./package.json
 COPY ./debug.sh ./debug.sh
 ENV APP_PORT=3002
+ENV OT_AGENT_HOST=http://otagent:4318
 EXPOSE 3002
-CMD ["sh", "debug.sh"]
+CMD ["node", "dist/index.js"]

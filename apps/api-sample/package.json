@@ -7,12 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "nodemon ./src/index.js",
     "start": "node ./src/index.js",
+    "build": "npx esbuild ./src/index.js --bundle --platform=node --target=node20 --sourcemap --outfile=./dist/index.js",
     "prod": "node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "nodemon":"1.18.3"
+    "nodemon": "1.18.3"
+  },
+  "devDependencies": {
+    "winston": "^3.10.0"
   }
 }

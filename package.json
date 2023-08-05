@@ -4,7 +4,16 @@
   "description": "Example for using nginx to auth fe and be",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app:start": "cd ./docker/auth-example && ./run-dev.sh",
+    "app:up": "cd ./docker/auth-example && docker-compose up -d",
+    "app:down": "cd ./docker/auth-example && docker-compose down",
+    "zipkin:up": "cd ./docker/zipkin && docker-compose down && docker-compose up -d",
+    "zipkin:down": "cd ./docker/zipkin && docker-compose down",
+    "grafana:up": "cd ./docker/grafana && docker-compose down && docker-compose up -d",
+    "grafana:down": "cd ./docker/grafana && docker-compose down",
+    "signoz:up": "cd ./docker/signoz/signoz && docker-compose up -d",
+    "signoz:down": "cd ./docker/signoz/signoz && docker-compose down"
   },
   "workspaces": [
     "apps/*",
